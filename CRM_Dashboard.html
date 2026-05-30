@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Regent Seating — CRM Dashboard</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+  :root { color-scheme: light; --brand:#1F3864; --bg:#F5F8FC;
+          --card:#FFFFFF; --muted:#6C757D; --line:#E2E8F0; }
+  body { margin:0; font-family:-apple-system,BlinkMacSystemFont,
+          "Segoe UI",Roboto,sans-serif; background:var(--bg);
+          color:#1A202C; }
+  header { background:var(--brand); color:white; padding:18px 28px; }
+  header h1 { margin:0; font-size:22px; font-weight:600; }
+  header .sub { opacity:.8; font-size:12px; margin-top:4px; }
+  .wrap { max-width:1280px; margin:auto; padding:20px 28px 48px; }
+  .kpis { display:grid; gap:14px; grid-template-columns:
+          repeat(auto-fit,minmax(180px,1fr)); margin-bottom:24px; }
+  .kpi { background:var(--card); padding:14px 16px; border-radius:8px;
+          box-shadow:0 1px 3px rgba(0,0,0,.05); }
+  .kpi-n { font-size:26px; font-weight:700; color:var(--brand); }
+  .kpi-l { font-size:12px; color:var(--muted); margin-top:2px;
+            text-transform:uppercase; letter-spacing:.5px; }
+  .grid { display:grid; gap:18px; grid-template-columns: 2fr 1fr; }
+  @media (max-width:980px) { .grid { grid-template-columns:1fr; } }
+  .card { background:var(--card); border-radius:10px; padding:18px 20px;
+           box-shadow:0 1px 3px rgba(0,0,0,.05); margin-bottom:18px; }
+  .card h2 { margin:0 0 12px; font-size:14px; text-transform:uppercase;
+              letter-spacing:1px; color:var(--brand); }
+  .bar-row { display:grid; grid-template-columns:120px 1fr 50px;
+              gap:10px; align-items:center; margin-bottom:6px; }
+  .bar-label { font-size:12px; color:#2D3748; }
+  .bar-track { background:#E2E8F0; border-radius:4px; height:14px;
+                overflow:hidden; }
+  .bar-fill  { background:linear-gradient(90deg,#1F3864,#0D6EFD);
+                height:100%; }
+  .bar-count { font-size:12px; text-align:right; font-variant-numeric:tabular-nums; color:#2D3748; }
+  table { width:100%; border-collapse:collapse; font-size:12.5px; }
+  th, td { padding:6px 8px; border-bottom:1px solid var(--line);
+            text-align:left; vertical-align:top; }
+  th { background:#EDF2F7; font-weight:600; color:var(--brand);
+        text-transform:uppercase; font-size:11px; letter-spacing:.5px; }
+  td.r, th.r { text-align:right; font-variant-numeric:tabular-nums; }
+  .muted { color:var(--muted); }
+  .chip { display:inline-block; color:white; padding:3px 10px; margin:2px;
+           border-radius:14px; font-size:11px; font-weight:600;
+           text-transform:uppercase; letter-spacing:.5px; }
+  .chip-mini { display:inline-block; color:white; padding:1px 6px;
+                border-radius:8px; font-size:10px; font-weight:600;
+                text-transform:uppercase; letter-spacing:.5px; }
+  code { background:#EDF2F7; padding:1px 6px; border-radius:3px;
+          font-size:12px; }
+  .actions { font-size:11px; color:var(--muted); margin-top:8px; }
+</style>
+</head>
+<body>
+  <header>
+    <h1>Regent Seating Collection — CRM Dashboard</h1>
+    <div class="sub">Generated 29 May 2026 23:21 · re-run
+        <code>python crm_dashboard.py</code> to refresh</div>
+  </header>
+
+  <div class="wrap">
+    <div class="kpis"><div class='kpi' style='border-left:5px solid #1F3864'><div class='kpi-n'>50</div><div class='kpi-l'>Hot leads (≥70)</div></div><div class='kpi' style='border-left:5px solid #0D6EFD'><div class='kpi-n'>16</div><div class='kpi-l'>Decision-makers ready</div></div><div class='kpi' style='border-left:5px solid #DC3545'><div class='kpi-n'>15</div><div class='kpi-l'>Email openers (HOT)</div></div><div class='kpi' style='border-left:5px solid #FD7E14'><div class='kpi-n'>18</div><div class='kpi-l'>Opener follow-ups sent</div></div><div class='kpi' style='border-left:5px solid #28A745'><div class='kpi-n'>1</div><div class='kpi-l'>Auto-replied (hot leads)</div></div><div class='kpi' style='border-left:5px solid #FFC107'><div class='kpi-n'>0</div><div class='kpi-l'>Quotes generated</div></div><div class='kpi' style='border-left:5px solid #6C757D'><div class='kpi-n'>7</div><div class='kpi-l'>Follow-ups done</div></div></div>
+
+    <div class="grid">
+      <div>
+        <div class="card">
+          <h2>Pipeline Funnel</h2>
+          <div class="bar-row">
+          <span class="bar-label">Prospect</span>
+          <div class="bar-track"><div class="bar-fill"
+            style="width:0.0%"></div></div>
+          <span class="bar-count">0</span>
+        </div><div class="bar-row">
+          <span class="bar-label">Sent</span>
+          <div class="bar-track"><div class="bar-fill"
+            style="width:100.0%"></div></div>
+          <span class="bar-count">153</span>
+        </div><div class="bar-row">
+          <span class="bar-label">Delivered</span>
+          <div class="bar-track"><div class="bar-fill"
+            style="width:94.8%"></div></div>
+          <span class="bar-count">145</span>
+        </div><div class="bar-row">
+          <span class="bar-label">Opened</span>
+          <div class="bar-track"><div class="bar-fill"
+            style="width:8.5%"></div></div>
+          <span class="bar-count">13</span>
+        </div><div class="bar-row">
+          <span class="bar-label">Clicked</span>
+          <div class="bar-track"><div class="bar-fill"
+            style="width:2.6%"></div></div>
+          <span class="bar-count">4</span>
+        </div><div class="bar-row">
+          <span class="bar-label">Replied</span>
+          <div class="bar-track"><div class="bar-fill"
+            style="width:0.0%"></div></div>
+          <span class="bar-count">0</span>
+        </div><div class="bar-row">
+          <span class="bar-label">Quoted</span>
+          <div class="bar-track"><div class="bar-fill"
+            style="width:0.0%"></div></div>
+          <span class="bar-count">0</span>
+        </div><div class="bar-row">
+          <span class="bar-label">Sampled</span>
+          <div class="bar-track"><div class="bar-fill"
+            style="width:0.0%"></div></div>
+          <span class="bar-count">0</span>
+        </div><div class="bar-row">
+          <span class="bar-label">Ordered</span>
+          <div class="bar-track"><div class="bar-fill"
+            style="width:0.0%"></div></div>
+          <span class="bar-count">0</span>
+        </div>
+          <div class="actions">Stages map: <code>Prospect</code> = identified
+            but not yet contacted · <code>Replied/Quoted/Sampled/Ordered</code>
+            populate from reply_classifier + quote_generator.</div>
+        </div>
+
+        <div class="card">
+          <h2>All Inbound Replies <small style="font-size:11px;color:#6C757D;font-weight:400">([NEW] = today)</small></h2>
+          <table>
+            <thead><tr><th>Date</th><th>From</th><th>Intent</th><th>Snippet</th></tr></thead>
+            <tbody><tr><td>Mon, 25 May 2026</td><td>Issam El Jundi<br/><small class='muted'>issam@jmartliberia.com</small></td><td><span class='chip-mini' style='background:#FFC107'>price_query</span></td><td>[like] Issam El Jundi reacted to your message: ________________________________ From: Sanjay Kumar &lt;regentfurniturekirti@11030993.brevosend.com&gt; Sent: Sunday, 24 May 2026 17:02:00 To: Issam El Jundi &lt;</td></tr><tr><td>Mon, 25 May 2026</td><td>Issam El Jundi<br/><small class='muted'>issam@jmartliberia.com</small></td><td><span class='chip-mini' style='background:#FFC107'>price_query</span></td><td>Dear Sanjay, Thanks for your offers and follow-ups. We are in receipt of your catalogs. However, we have not gone through them properly. We are engaged with a number of suppliers out of China and have</td></tr></tbody>
+          </table>
+        </div>
+
+        <div class="card">
+          <h2>Hot Leads (Intent ≥ 70)</h2>
+          <table>
+            <thead><tr><th class='r'>Score</th><th>Company</th><th>Country</th>
+                       <th>Segment</th><th>Trigger</th></tr></thead>
+            <tbody><tr><td class='r'>78</td>
+            <td>Radisson Hotel Group</td>
+            <td>South Africa</td>
+            <td>hotel</td>
+            <td>Active tender hints in South Africa (etenders.gov.za)</td></tr><tr><td class='r'>78</td>
+            <td>Hotel Amenities Suppliers</td>
+            <td>South Africa</td>
+            <td>hotel</td>
+            <td>Active tender hints in South Africa (etenders.gov.za)</td></tr><tr><td class='r'>71</td>
+            <td>t.tot hotel</td>
+            <td>Kenya</td>
+            <td>hotel</td>
+            <td>Active tender hints in Kenya (Tenders.go.ke)</td></tr><tr><td class='r'>71</td>
+            <td>shammah hotel</td>
+            <td>Kenya</td>
+            <td>hotel</td>
+            <td>Active tender hints in Kenya (Tenders.go.ke)</td></tr><tr><td class='r'>71</td>
+            <td>Panari Hotel</td>
+            <td>Kenya</td>
+            <td>hotel</td>
+            <td>Active tender hints in Kenya (Tenders.go.ke)</td></tr><tr><td class='r'>71</td>
+            <td>DADOS HOTEL</td>
+            <td>Kenya</td>
+            <td>hotel</td>
+            <td>Active tender hints in Kenya (Tenders.go.ke)</td></tr><tr><td class='r'>71</td>
+            <td>Hennessis Hotel</td>
+            <td>Kenya</td>
+            <td>hotel</td>
+            <td>Active tender hints in Kenya (Tenders.go.ke)</td></tr><tr><td class='r'>71</td>
+            <td>Sunstar Hotel</td>
+            <td>Kenya</td>
+            <td>hotel</td>
+            <td>Active tender hints in Kenya (Tenders.go.ke)</td></tr><tr><td class='r'>71</td>
+            <td>Samra Hotel</td>
+            <td>Kenya</td>
+            <td>hotel</td>
+            <td>Active tender hints in Kenya (Tenders.go.ke)</td></tr><tr><td class='r'>71</td>
+            <td>Concord Hotel</td>
+            <td>Kenya</td>
+            <td>hotel</td>
+            <td>Active tender hints in Kenya (Tenders.go.ke)</td></tr><tr><td class='r'>71</td>
+            <td>Clarence House Hotel</td>
+            <td>Kenya</td>
+            <td>hotel</td>
+            <td>Active tender hints in Kenya (Tenders.go.ke)</td></tr><tr><td class='r'>71</td>
+            <td>imperial hotel</td>
+            <td>Kenya</td>
+            <td>hotel</td>
+            <td>Active tender hints in Kenya (Tenders.go.ke)</td></tr><tr><td class='r'>71</td>
+            <td>peniel hotel</td>
+            <td>Kenya</td>
+            <td>hotel</td>
+            <td>Active tender hints in Kenya (Tenders.go.ke)</td></tr><tr><td class='r'>71</td>
+            <td>Eka Hotel</td>
+            <td>Kenya</td>
+            <td>hotel</td>
+            <td>Active tender hints in Kenya (Tenders.go.ke)</td></tr><tr><td class='r'>71</td>
+            <td>Intercounty Gardens Hotel</td>
+            <td>Kenya</td>
+            <td>hotel</td>
+            <td>Active tender hints in Kenya (Tenders.go.ke)</td></tr><tr><td class='r'>71</td>
+            <td>Heritage Hotel Group</td>
+            <td>Kenya</td>
+            <td>hotel</td>
+            <td>Active tender hints in Kenya (Tenders.go.ke)</td></tr><tr><td class='r'>71</td>
+            <td>Sarova Panafric Hotel</td>
+            <td>Kenya</td>
+            <td>hotel</td>
+            <td>Active tender hints in Kenya (Tenders.go.ke)</td></tr><tr><td class='r'>71</td>
+            <td>D-Lux Hotel &amp; Lounge Nakuru</td>
+            <td>Kenya</td>
+            <td>hotel</td>
+            <td>Active tender hints in Kenya (Tenders.go.ke)</td></tr><tr><td class='r'>71</td>
+            <td>ELEVEN PEARL BOUTIQUE HOTEL AND SPA</td>
+            <td>Kenya</td>
+            <td>hotel</td>
+            <td>Active tender hints in Kenya (Tenders.go.ke)</td></tr><tr><td class='r'>71</td>
+            <td>Hotel Jobs</td>
+            <td>Kenya</td>
+            <td>hotel</td>
+            <td>Active tender hints in Kenya (Tenders.go.ke)</td></tr><tr><td class='r'>71</td>
+            <td>Levels Hotel Nairobi</td>
+            <td>Kenya</td>
+            <td>hotel</td>
+            <td>Active tender hints in Kenya (Tenders.go.ke)</td></tr><tr><td class='r'>71</td>
+            <td>Kakamega Golf Hotel Ltd.</td>
+            <td>Kenya</td>
+            <td>hotel</td>
+            <td>Active tender hints in Kenya (Tenders.go.ke)</td></tr><tr><td class='r'>71</td>
+            <td>elysian resort</td>
+            <td>Kenya</td>
+            <td>hotel</td>
+            <td>Active tender hints in Kenya (Tenders.go.ke)</td></tr><tr><td class='r'>71</td>
+            <td>Enashipai Resort &amp; Spa</td>
+            <td>Kenya</td>
+            <td>hotel</td>
+            <td>Active tender hints in Kenya (Tenders.go.ke)</td></tr><tr><td class='r'>71</td>
+            <td>almond resort limited</td>
+            <td>Kenya</td>
+            <td>hotel</td>
+            <td>Active tender hints in Kenya (Tenders.go.ke)</td></tr><tr><td class='r'>71</td>
+            <td>Sharks palace resort</td>
+            <td>Kenya</td>
+            <td>hotel</td>
+            <td>Active tender hints in Kenya (Tenders.go.ke)</td></tr><tr><td class='r'>71</td>
+            <td>kitonga garden resort</td>
+            <td>Kenya</td>
+            <td>hotel</td>
+            <td>Active tender hints in Kenya (Tenders.go.ke)</td></tr><tr><td class='r'>71</td>
+            <td>Jumuia resort- Kisumu</td>
+            <td>Kenya</td>
+            <td>hotel</td>
+            <td>Active tender hints in Kenya (Tenders.go.ke)</td></tr><tr><td class='r'>71</td>
+            <td>baobab beach resort &amp; spa</td>
+            <td>Kenya</td>
+            <td>hotel</td>
+            <td>Active tender hints in Kenya (Tenders.go.ke)</td></tr><tr><td class='r'>71</td>
+            <td>Diani Reef Beach Resort &amp; Spa</td>
+            <td>Kenya</td>
+            <td>hotel</td>
+            <td>Active tender hints in Kenya (Tenders.go.ke)</td></tr></tbody>
+          </table>
+        </div>
+
+        <div class="card">
+          <h2>🔥 Email Openers — Warm Leads (17 total, 15 HOT)</h2>
+          <table>
+            <thead><tr><th>Tier</th><th>Email</th><th>Company</th>
+                       <th class='r'>Opens</th><th class='r'>Clicks</th>
+                       <th>Last Opened</th><th>Follow-up Sent?</th></tr></thead>
+            <tbody><tr><td><span class='chip-mini' style='background:#DC3545'>HOT</span></td><td><small>info@jmartliberia.com</small></td><td>J-mart, Inc.</td><td class='r'>10</td><td class='r'>2</td><td>2026-05-28</td><td style='color:#28A745'>&#10003; Sent</td></tr><tr><td><span class='chip-mini' style='background:#DC3545'>HOT</span></td><td><small>nygfurnitures@gmail.com</small></td><td>NYG Furniture</td><td class='r'>9</td><td class='r'>1</td><td>2026-05-28</td><td style='color:#28A745'>&#10003; Sent</td></tr><tr><td><span class='chip-mini' style='background:#DC3545'>HOT</span></td><td><small>heindrecoertze@radissonhotels.com</small></td><td>Radisson Hotel Group</td><td class='r'>2</td><td class='r'>6</td><td>2026-05-27</td><td style='color:#28A745'>&#10003; Sent</td></tr><tr><td><span class='chip-mini' style='background:#DC3545'>HOT</span></td><td><small>info@doge1985.it</small></td><td>FURNITURE DESIGN &amp; 3D ARCHITECTURE by D.O.G.E</td><td class='r'>10</td><td class='r'></td><td>2026-05-26</td><td style='color:#28A745'>&#10003; Sent</td></tr><tr><td><span class='chip-mini' style='background:#DC3545'>HOT</span></td><td><small>gm@clubmykonos.co.za</small></td><td>Club Mykonos Resort - Langebaan</td><td class='r'>2</td><td class='r'>4</td><td>2026-05-27</td><td style='color:#28A745'>&#10003; Sent</td></tr><tr><td><span class='chip-mini' style='background:#DC3545'>HOT</span></td><td><small>galeriebarrouch@gmail.com</small></td><td>GALERIE BARROUCH</td><td class='r'>6</td><td class='r'></td><td>2026-05-27</td><td style='color:#28A745'>&#10003; Sent</td></tr><tr><td><span class='chip-mini' style='background:#DC3545'>HOT</span></td><td><small>info@rosewood.co.ke</small></td><td>Rosewood</td><td class='r'>5</td><td class='r'></td><td>2026-05-27</td><td style='color:#28A745'>&#10003; Sent</td></tr><tr><td><span class='chip-mini' style='background:#DC3545'>HOT</span></td><td><small>giells99@gmail.com</small></td><td>Giells</td><td class='r'>6</td><td class='r'></td><td>2026-05-25</td><td style='color:#28A745'>&#10003; Sent</td></tr><tr><td><span class='chip-mini' style='background:#DC3545'>HOT</span></td><td><small>sales@entrawood.co.za</small></td><td>Contact</td><td class='r'>4</td><td class='r'></td><td>2026-05-27</td><td style='color:#28A745'>&#10003; Sent</td></tr><tr><td><span class='chip-mini' style='background:#DC3545'>HOT</span></td><td><small>gary@tradecorp.co.za</small></td><td>TradeCorp | Office Furniture</td><td class='r'>4</td><td class='r'></td><td>2026-05-25</td><td style='color:#28A745'>&#10003; Sent</td></tr><tr><td><span class='chip-mini' style='background:#DC3545'>HOT</span></td><td><small>info@newburo.net</small></td><td>NEW BURO</td><td class='r'>3</td><td class='r'></td><td>2026-05-25</td><td style='color:#28A745'>&#10003; Sent</td></tr><tr><td><span class='chip-mini' style='background:#DC3545'>HOT</span></td><td><small>service@sheznou.com</small></td><td>Sheznou – Mobilier professionnel &amp; cabines acoustiques à Dakar</td><td class='r'>3</td><td class='r'></td><td>2026-05-25</td><td style='color:#28A745'>&#10003; Sent</td></tr><tr><td><span class='chip-mini' style='background:#DC3545'>HOT</span></td><td><small>info@aaenterprises-africa.com</small></td><td>A. A. Enterprices Limited</td><td class='r'>1</td><td class='r'></td><td>2026-05-25</td><td style='color:#28A745'>&#10003; Sent</td></tr><tr><td><span class='chip-mini' style='background:#DC3545'>HOT</span></td><td><small>klarrion@klarrion.com</small></td><td>Meuble Métallique Tunisie</td><td class='r'>1</td><td class='r'></td><td>2026-05-25</td><td style='color:#28A745'>&#10003; Sent</td></tr><tr><td><span class='chip-mini' style='background:#DC3545'>HOT</span></td><td><small>info@joonasindustries.com</small></td><td>Joonas Industries</td><td class='r'>1</td><td class='r'></td><td>2026-05-18</td><td style='color:#28A745'>&#10003; Sent</td></tr><tr><td><span class='chip-mini' style='background:#FFC107'>WARM</span></td><td><small>modfurn2@gmail.com</small></td><td>Modern Furnishers</td><td class='r'>2</td><td class='r'></td><td>2026-05-07</td><td style='color:#28A745'>&#10003; Sent</td></tr><tr><td><span class='chip-mini' style='background:#FFC107'>WARM</span></td><td><small>sales4afriqa@gmail.com</small></td><td>Richmond Furniture</td><td class='r'>1</td><td class='r'></td><td>2026-05-07</td><td style='color:#28A745'>&#10003; Sent</td></tr></tbody>
+          </table>
+          <div class="actions">Run <code>python warm_leads_whatsapp.py</code> to refresh ·
+            <code>python opener_followup.py</code> to send follow-ups</div>
+        </div>
+      </div>
+
+      <div>
+        <div class="card">
+          <h2>Reply Bucket Mix</h2>
+          <span class='chip' style='background:#FFC107'>price_query &middot; 2</span>
+        </div>
+
+        <div class="card">
+          <h2>By Country</h2>
+          <table>
+            <thead><tr><th>Country</th><th class='r'>Contacts</th>
+                       <th class='r'>Opens</th></tr></thead>
+            <tbody><tr><td>—</td><td class='r'>44</td><td class='r'>9</td></tr><tr><td>South Africa</td><td class='r'>33</td><td class='r'>8</td></tr><tr><td>Egypt</td><td class='r'>31</td><td class='r'>0</td></tr><tr><td>Nigeria</td><td class='r'>29</td><td class='r'>0</td></tr><tr><td>Tunisia</td><td class='r'>24</td><td class='r'>1</td></tr><tr><td>Kenya</td><td class='r'>24</td><td class='r'>0</td></tr><tr><td>Senegal</td><td class='r'>17</td><td class='r'>13</td></tr><tr><td>Angola</td><td class='r'>13</td><td class='r'>0</td></tr><tr><td>Mozambique</td><td class='r'>13</td><td class='r'>0</td></tr><tr><td>Zambia</td><td class='r'>12</td><td class='r'>0</td></tr><tr><td>Zimbabwe</td><td class='r'>11</td><td class='r'>3</td></tr><tr><td>Côte d&#x27;Ivoire</td><td class='r'>8</td><td class='r'>3</td></tr><tr><td>South Sudan</td><td class='r'>7</td><td class='r'>9</td></tr><tr><td>Guinea</td><td class='r'>6</td><td class='r'>0</td></tr><tr><td>Liberia</td><td class='r'>5</td><td class='r'>20</td></tr></tbody>
+          </table>
+        </div>
+
+        <div class="card">
+          <h2>By Channel</h2>
+          <table>
+            <thead><tr><th>Channel</th><th class='r'>Sent</th></tr></thead>
+            <tbody><tr><td>Email</td><td class='r'>162</td></tr><tr><td>WhatsApp</td><td class='r'>153</td></tr></tbody>
+          </table>
+        </div>
+
+        <div class="card">
+          <h2>Daily Routine</h2>
+          <ol style="padding-left:18px;font-size:12.5px;color:#2D3748;">
+            <li><code>run_daily.bat</code> — runs everything below automatically at 9 AM</li>
+            <li><code>daily_bot.py</code> — cold outreach + Day 3/7/14 follow-ups</li>
+            <li><code>opener_followup.py</code> — follows up with email openers (engagement-based)</li>
+            <li><code>auto_responder.py</code> — replies instantly to hot inbound replies</li>
+            <li><code>warm_leads_whatsapp.py</code> — refreshes opener list for WhatsApp</li>
+            <li><code>reply_classifier.py</code> — classifies all inbound replies</li>
+            <li><code>quote_generator.py</code> — issue Proforma Invoice on demand</li>
+            <li><code>crm_dashboard.py</code> — refresh this page</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
